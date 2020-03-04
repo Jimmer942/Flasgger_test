@@ -13,13 +13,19 @@ enviar proyecto. Solo requerimos llamada virtual para recibir indicaciones de lo
 1. Permitir registro de usuarios con Identificación, Email, Teléfono y
 contraseña.**Condiciones**: Los tipos de usuario permitidos en registro son Hospital y Paciente.
 
+4. Registro de datos básicos de usuario:
+Si el usuario es de tipo Hospital debe registrar: Nombre, Dirección, Servicios
+médicos que brinda.
+Si el usuario es de tipo paciente debe registrar: Nombre, Dirección, fecha de
+nacimiento.
+
 **Solución**:
 
 **Signin pacients**  
 
 route: "/new-pacient/add"  
 methods allowed: POST  
-parameters: usr_cc, usr_email, usr_phone, usr_password, [usr_name], [usr_addr], [usr_birth_date]  
+parameters: usr_cc, usr_email, usr_phone, usr_password, usr_name, usr_addr, usr_birth_date  
 Curl Example:  
 curl -d "usr_cc=00001&usr_email=jodmunozol@unal.edu.co&usr_phone=1234&usr_password=123456" -X POST http://localhost:3000/new-pacient/add  
 
@@ -29,3 +35,20 @@ methods allowed: POST
 parameters: hosp_cc, hosp_email, hosp_phone, [hosp_services], [hosp_name], [hosp_addr]  
 Curl Example:  
 curl -d "hosp_cc=00002&hosp_email=834@holbertonschool.com&hosp_phone=1234&hosp_password=123456" -X POST http://localhost:3000/new-hospital/add  
+
+2. Confirmación de registro por parte de usuario a través de uno de sus datos de
+contacto.**Condiciones**: El usuario no podrá acceder al sistema hasta que confirme su registro.
+
+Solución: Cuando se utiliza el sign in para crear un usuario nuevo automaticamente se envia un correo para Confirmanco el registro  
+
+3. Inicio de sesión de usuario utilizando Identificación y Contraseña.
+
+**Solución**
+**Loggin**
+route: "/login"  
+methods allowed: POST  
+parameters: cc, password  
+Notes: In order to access you must verify your email address, and then if you are trying to loggin as doctor you have to reset your default password  
+Curl Example:  
+curl -d "cc=00002&password=123456" -X POST http://localhost:3000/loggin
+
