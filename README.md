@@ -52,3 +52,8 @@ Notes: In order to access you must verify your email address, and then if you ar
 Curl Example:  
 curl -d "cc=00002&password=123456" -X POST http://localhost:3000/loggin
 
+5 Registro de usuario tipo Médico por parte de un usuario Hospital. Condiciones:
+Condiciones similares al registro de los otros tipos de usuario.  
+La primera vez que inicie sesión debe cambiar la contraseña y establecer una nueva
+contraseña.
+**Solución**: Los usuarios medico al confirmar su correo, les llega un nuevo correo con la URL para el cambio de contraseña e indicando que es obligatorio
