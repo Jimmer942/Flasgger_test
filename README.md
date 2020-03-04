@@ -9,6 +9,7 @@ historia clínica centralizada.
 enviar proyecto. Solo requerimos llamada virtual para recibir indicaciones de lo realizado.
 
 **Requerimientos**:
+
 	1. Permitir registro de usuarios con Identificación, Email, Teléfono y
 	contraseña.
 		**Condiciones**: Los tipos de usuario permitidos en registro son Hospital y Paciente.
