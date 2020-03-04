@@ -15,15 +15,15 @@ contraseña.**Condiciones**: Los tipos de usuario permitidos en registro son Hos
 
 **Solución**:
 
-**Signin pacients**
+**Signin pacients**  
 
-route: "/new-pacient/add"
-methods allowed: POST
-parameters: usr_cc, usr_email, usr_phone, usr_password, [usr_name], [usr_addr], [usr_birth_date]
-Curl Example:
-curl -d "usr_cc=00001&usr_email=jodmunozol@unal.edu.co&usr_phone=1234&usr_password=123456" -X POST http://localhost:3000/new-pacient/add
+route: "/new-pacient/add"  
+methods allowed: POST  
+parameters: usr_cc, usr_email, usr_phone, usr_password, [usr_name], [usr_addr], [usr_birth_date]  
+Curl Example:  
+curl -d "usr_cc=00001&usr_email=jodmunozol@unal.edu.co&usr_phone=1234&usr_password=123456" -X POST http://localhost:3000/new-pacient/add  
 
-**Signin hospitals**
+**Signin hospitals**  
 route: "/new-hospital/add"  
 methods allowed: POST  
 parameters: hosp_cc, hosp_email, hosp_phone, [hosp_services], [hosp_name], [hosp_addr]  
