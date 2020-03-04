@@ -41,6 +41,14 @@ contacto.**Condiciones**: El usuario no podrá acceder al sistema hasta que conf
 
 Solución: Cuando se utiliza el sign in p      ara crear un usuario nuevo automaticamente se envia un correo para Confirmanco el registro  
 
+**Create new doctors**  
+route: "/new-doctor/add"  
+methods allowed: POST  
+parameters: doc_cc, doc_email, doc_phone, doc_password, [doc_name]  
+Notes: In order to create a new doctor user you must be logged as hospital user  
+Curl Example:  
+curl -d "doc_cc=00003&doc_password=123456&doc_email=942@holbertonschool.com&doc_phone=1234" -X POST http://localhost:3000/new-doctor/add  
+
 3 Inicio de sesión de usuario utilizando Identificación y Contraseña.
 
 **Solución**  
@@ -57,3 +65,36 @@ Condiciones similares al registro de los otros tipos de usuario.
 La primera vez que inicie sesión debe cambiar la contraseña y establecer una nueva
 contraseña.
 **Solución**: Los usuarios medico al confirmar su correo, les llega un nuevo correo con la URL para el cambio de contraseña e indicando que es obligatorio
+
+6 Todos los usuarios deben cambiar y/o recuperar su contraseña cuando lo deseen.  
+**Reset password**  
+route: "/account/reset-password"  
+methods allowed: POST  
+parameters: cc  
+Curl Example:  
+curl -d "cc=00001" -X POST http://localhost:3000/account/reset-password  
+
+
+**Update pacient data**  
+route: "/pacient/update"  
+methods allowed: PUT  
+parameters: [usr_date_birth], [usr_name], [usr_addr]  
+Notes: In order to update the data you must be logged as pacient user  
+Curl Example:  
+curl -d "usr_name=tonytony" -X PUT http://localhost:3000/pacient/update  
+
+**Update Hospital data**  
+route: "/hospital/update"  
+methods allowed: PUT  
+parameters: [hosp_services], [hosp_name], [hosp_addr]  
+Notes: In order to update the data you must be logged as hospital user  
+Curl Example:  
+curl -d "hosp_services=surgery, rehabilitation&hosp_name=Arkham Asylum" -X PUT http://localhost:3000/hospital/update  
+
+**Update Doctor data**
+route: "/doctor/update"  
+methods allowed: PUT  
+parameters: [doc_name]  
+Notes: In order to update the data you must be logged as doctor user  
+Curl Example:  
+curl -d "doc_name=Bruce Wayne" -X PUT http://localhost:3000/doctor/update  
