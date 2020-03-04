@@ -25,21 +25,21 @@ nacimiento.
 
 route: "/new-pacient/add"  
 methods allowed: POST  
-parameters: usr_cc, usr_email, usr_phone, usr_password, usr_name, usr_addr, usr_birth_date  
+parameters: usr_cc, usr_email, usr_phone, usr_password, usr_name, [usr_addr], [usr_birth_date]  
 Curl Example:  
-curl -d "usr_cc=00001&usr_email=jodmunozol@unal.edu.co&usr_phone=1234&usr_password=123456" -X POST http://localhost:3000/new-pacient/add  
+curl -d "usr_cc=00001&usr_email=jodmunozol@unal.edu.co&usr_phone=1234&usr_password=123456&usr_name=Johan" -X POST http://localhost:3000/new-pacient/add  
 
 **Signin hospitals**  
 route: "/new-hospital/add"  
 methods allowed: POST  
-parameters: hosp_cc, hosp_email, hosp_phone, [hosp_services], [hosp_name], [hosp_addr]  
+parameters: hosp_cc, hosp_email, hosp_phone, [hosp_services], hosp_name, [hosp_addr]  
 Curl Example:  
-curl -d "hosp_cc=00002&hosp_email=834@holbertonschool.com&hosp_phone=1234&hosp_password=123456" -X POST http://localhost:3000/new-hospital/add  
+curl -d "hosp_cc=00002&hosp_name=Heippi Hospital&hosp_email=834@holbertonschool.com&hosp_phone=1234&hosp_pass	word=123456" -X POST http://localhost:3000/new-hospital/add  
 
 2. Confirmación de registro por parte de usuario a través de uno de sus datos de
 contacto.**Condiciones**: El usuario no podrá acceder al sistema hasta que confirme su registro.
 
-Solución: Cuando se utiliza el sign in para crear un usuario nuevo automaticamente se envia un correo para Confirmanco el registro  
+Solución: Cuando se utiliza el sign in p      ara crear un usuario nuevo automaticamente se envia un correo para Confirmanco el registro  
 
 3. Inicio de sesión de usuario utilizando Identificación y Contraseña.
 
