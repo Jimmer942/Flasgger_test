@@ -91,10 +91,28 @@ Notes: In order to update the data you must be logged as hospital user
 Curl Example:  
 curl -d "hosp_services=surgery, rehabilitation&hosp_name=Arkham Asylum" -X PUT http://localhost:3000/hospital/update  
 
-**Update Doctor data**
+**Update Doctor data**  
 route: "/doctor/update"  
 methods allowed: PUT  
 parameters: [doc_name]  
 Notes: In order to update the data you must be logged as doctor user  
 Curl Example:  
-curl -d "doc_name=Bruce Wayne" -X PUT http://localhost:3000/doctor/update  
+curl -d "doc_name=Bruce Wayne" -X PUT http://localhost:3000/doctor/update
+
+7 Permitir a un usuario de Tipo Médico registrar observaciones médicas y estado de salud
+de un usuario de tipo Paciente. Condiciones: Obligatorio indicar especialidad médica brindada al Paciente  
+**Create medical observations**  
+route: "/medical-observations"  
+methods allowed: GET  
+parameters: health, observations, especiality, usr_cc  
+Notes: In order to create a new medical observation you must be logged as doctor user  
+Curl Example:  
+curl -d "health=bad&usr_cc=00001&observations=pacient have flu&especiality=homeopathy" -X POST http://localhost:3000/medical-observations/add  
+
+8 Cualquier usuario debe poder consultar todos los registros de observaciones médicas  
+registradas. Condiciones:  
+Mostrar: hospital, médico, especialidad y detalle de cada registro asociado al
+paciente.  
+Usuario Paciente, solo puede consultar sus registros.  
+Usuario Médico, puede consultar registros realizados por él mismo.  
+Usuario Hospital, puede consultar los registros realizados por sus Médicos.  
